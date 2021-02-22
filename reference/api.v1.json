@@ -755,6 +755,9 @@
           },
           "address": {
             "type": "string"
+          },
+          "activationKey": {
+            "type": "boolean"
           }
         },
         "required": [
@@ -817,6 +820,49 @@
           "product_id",
           "date"
         ]
+      },
+      "Country": {
+        "title": "Country",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "City": {
+        "title": "City",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "country_id": {
+            "$ref": "#/components/schemas/Country"
+          }
+        }
+      },
+      "Address": {
+        "title": "Address",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city_id": {
+            "$ref": "#/components/schemas/City"
+          }
+        }
       }
     },
     "securitySchemes": {
