@@ -790,6 +790,9 @@
           },
           "quantity": {
             "type": "integer"
+          },
+          "category_id": {
+            "$ref": "#/components/schemas/Category"
           }
         },
         "required": [
@@ -861,6 +864,112 @@
           },
           "city_id": {
             "$ref": "#/components/schemas/City"
+          }
+        }
+      },
+      "Upload": {
+        "title": "Upload",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "url",
+          "type"
+        ]
+      },
+      "Tag": {
+        "title": "Tag",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "tag"
+        ]
+      },
+      "Category": {
+        "title": "Category",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "default": "other"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "ProductTag": {
+        "title": "ProductTag",
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "tag_id": {
+            "$ref": "#/components/schemas/Tag"
+          }
+        }
+      },
+      "Review": {
+        "title": "Review",
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "$ref": "#/components/schemas/User"
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "WishList": {
+        "title": "WishList",
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "$ref": "#/components/schemas/User"
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/Product"
+          }
+        }
+      },
+      "Rate": {
+        "title": "Rate",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
           }
         }
       }
