@@ -1009,7 +1009,7 @@
         }
       ],
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "Send user email verification key to change password",
         "tags": [],
         "responses": {
           "200": {
@@ -1076,6 +1076,48 @@
           },
           "description": ""
         }
+      },
+      "patch": {
+        "summary": "Rest forgot user password",
+        "operationId": "patch-user-userId-password-forgot",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Rest user's password after verification success",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newPassword": {
+                    "type": "string"
+                  },
+                  "confirmation": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -1134,6 +1176,9 @@
           },
           "activationKey": {
             "type": "boolean"
+          },
+          "passwordVkey": {
+            "type": "number"
           }
         },
         "required": [
