@@ -1981,6 +1981,9 @@
           },
           "tag": {
             "type": "string"
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/Product"
           }
         },
         "required": [
@@ -2032,6 +2035,10 @@
           },
           "description": {
             "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
           }
         }
       },
@@ -2143,6 +2150,38 @@
           },
           "price": {
             "type": "number"
+          }
+        }
+      },
+      "Transaction": {
+        "title": "Transaction",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "order_id": {
+            "$ref": "#/components/schemas/Order"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "Invoice": {
+        "title": "Invoice",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "$ref": "#/components/schemas/Transaction"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
           }
         }
       }
