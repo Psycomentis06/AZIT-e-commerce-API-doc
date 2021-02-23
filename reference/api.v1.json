@@ -779,6 +779,15 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "requestBody": {
@@ -798,7 +807,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Create new upload"
       }
     },
     "/upload/{uploadId}": {
@@ -839,7 +849,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "",
+        "description": "Update upload info with given ID",
         "requestBody": {
           "content": {
             "application/json": {
@@ -878,7 +888,7 @@
             "description": "Internal Server Error"
           }
         },
-        "description": ""
+        "description": "Remove upload with given ID"
       },
       "get": {
         "summary": "Get upload by ID",
@@ -919,6 +929,152 @@
               }
             }
           }
+        },
+        "description": "Get upload (image, video, PDF) with given ID"
+      }
+    },
+    "/user/{userId}/password/reset": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "number"
+          },
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "User ID"
+        }
+      ],
+      "patch": {
+        "summary": "Reset User password",
+        "operationId": "patch-user-userId-password-reset",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Reset user password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currentPassword": {
+                    "type": "string"
+                  },
+                  "newPassword": {
+                    "type": "string"
+                  },
+                  "confirmation": {
+                    "type": "string",
+                    "description": "Retyped Password"
+                  }
+                },
+                "required": [
+                  "currentPassword",
+                  "newPassword",
+                  "confirmation"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{userId}/password/forgot": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "userId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-user-userId-password-forget",
+        "description": "Send user email verification key to change password "
+      },
+      "post": {
+        "summary": "Login user with verification key",
+        "operationId": "post-user-userId-password-forgot",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Login user with verification key  sent to his mail.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "verificationKey": {
+                    "type": "string",
+                    "description": "Code (6 digits) sent to user's mail",
+                    "minLength": 111111,
+                    "maxLength": 999999
+                  }
+                },
+                "required": [
+                  "verificationKey"
+                ]
+              }
+            }
+          },
+          "description": ""
         }
       }
     }
