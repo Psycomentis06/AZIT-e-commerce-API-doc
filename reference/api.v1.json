@@ -1868,17 +1868,26 @@
           "user_id": {
             "$ref": "#/components/schemas/User"
           },
-          "product_id": {
+          "order_details_id": {
             "$ref": "#/components/schemas/Product"
           },
           "date": {
             "type": "string",
             "format": "date"
+          },
+          "product_quantity": {
+            "type": "integer"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "transaction_id": {
+            "type": "number"
           }
         },
         "required": [
           "user_id",
-          "product_id",
+          "order_details_id",
           "date"
         ]
       },
@@ -2113,6 +2122,27 @@
           },
           "upload_id": {
             "$ref": "#/components/schemas/Upload"
+          }
+        }
+      },
+      "OrderDetails": {
+        "title": "OrderDetails",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "order_id": {
+            "$ref": "#/components/schemas/Order"
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "product_quantity": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
           }
         }
       }
