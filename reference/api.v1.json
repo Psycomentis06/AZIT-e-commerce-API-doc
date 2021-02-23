@@ -1156,6 +1156,20 @@
             "in": "query",
             "name": "productId",
             "description": "Product ID"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "limit"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "offset"
           }
         ],
         "description": "Get Reviews for specific user or product",
@@ -1207,39 +1221,22 @@
             }
           }
         }
-      }
-    },
-    "/review/{reviewId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "reviewId",
-          "in": "path",
-          "required": true,
-          "description": "Review ID"
-        }
-      ],
+      },
       "patch": {
-        "summary": "Update Review by ID",
-        "operationId": "patch-review-reviewId",
+        "summary": "Update Review",
+        "operationId": "patch-review",
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Review"
-                }
-              }
-            }
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request"
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -1248,7 +1245,25 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Edit Review Description with given ID",
+        "description": "Update review description",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "userId",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "productId",
+            "required": true
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1259,13 +1274,6 @@
                     "type": "string"
                   }
                 }
-              },
-              "examples": {
-                "example-1": {
-                  "value": {
-                    "description": "string"
-                  }
-                }
               }
             }
           },
@@ -1273,14 +1281,20 @@
         }
       },
       "delete": {
-        "summary": "Delete Review by ID",
-        "operationId": "delete-review-reviewId",
+        "summary": "Delete Review",
+        "operationId": "delete-review",
         "responses": {
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -1289,7 +1303,177 @@
             "description": "Internal Server Error"
           }
         },
-        "description": "Delete review with given ID"
+        "description": "Delete review",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "userId"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "productId"
+          }
+        ]
+      }
+    },
+    "/wishlist": {
+      "get": {
+        "summary": "Get user's Wishlist",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                },
+                "examples": {
+                  "Example-1": {
+                    "value": [
+                      {
+                        "id": 0,
+                        "name": "string",
+                        "description": "string",
+                        "price": 0,
+                        "discount": 0,
+                        "quantity": 0,
+                        "category_id": {
+                          "id": "string",
+                          "name": "other"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-wishlist",
+        "description": "Get user is Wishlist",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "userId",
+            "description": "User ID",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "limit"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "offset"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create user Wishlist",
+        "operationId": "post-wishlist",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Create user wishlist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WishList"
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "delete": {
+        "summary": "Delete user's Wishlist",
+        "operationId": "delete-wishlist",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Remove product from user's wishlist or the entire wishlist if productId is not present in the queryParams",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "description": "User ID"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "productId",
+            "description": "Product ID"
+          }
+        ]
       }
     }
   },
