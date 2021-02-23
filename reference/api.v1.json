@@ -1725,9 +1725,9 @@
       }
     },
     "/paypal/complete/payment": {
-      "get": {
-        "summary": "Create PayPal payment complition",
-        "tags": [],
+      "post": {
+        "summary": "Create PayPal payment completion",
+        "operationId": "post-paypal-complete-payment",
         "responses": {
           "200": {
             "description": "OK",
@@ -1741,8 +1741,7 @@
             }
           }
         },
-        "operationId": "get-paypal-complete-payment",
-        "description": "Create PayPal payment complition",
+        "description": "Create PayPal payment completion",
         "parameters": [
           {
             "schema": {
@@ -1923,6 +1922,12 @@
           },
           "city_id": {
             "$ref": "#/components/schemas/City"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/User"
+          },
+          "credit_card_id": {
+            "$ref": "#/components/schemas/CreditCard"
           }
         }
       },
@@ -1945,6 +1950,10 @@
           },
           "product_id": {
             "$ref": "#/components/schemas/Product"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
           }
         },
         "required": [
@@ -2058,6 +2067,52 @@
           },
           "category_id": {
             "$ref": "#/components/schemas/Category"
+          }
+        }
+      },
+      "CreditCard": {
+        "title": "CreditCard",
+        "type": "object",
+        "properties": {
+          "cardNumber": {
+            "type": "string"
+          },
+          "expire_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "cc_type_id": {
+            "$ref": "#/components/schemas/CreditCardType"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/User"
+          },
+          "address_id": {
+            "$ref": "#/components/schemas/Address"
+          }
+        }
+      },
+      "CreditCardType": {
+        "title": "CreditCardType",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "ProductUpload": {
+        "title": "ProductUpload",
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "upload_id": {
+            "$ref": "#/components/schemas/Upload"
           }
         }
       }
