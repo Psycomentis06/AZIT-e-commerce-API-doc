@@ -1687,6 +1687,79 @@
         ]
       },
       "parameters": []
+    },
+    "/paypal/make/payment": {
+      "parameters": [],
+      "post": {
+        "summary": "Create PayPal payment method",
+        "operationId": "post-paypal-make-payment",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Create PayPal payment method",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "sum",
+            "description": "Amount of money"
+          }
+        ]
+      }
+    },
+    "/paypal/complete/payment": {
+      "get": {
+        "summary": "Create PayPal payment complition",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "PayPal Payment Object"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-paypal-complete-payment",
+        "description": "Create PayPal payment complition",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "paymentId"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "payerId"
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -1976,7 +2049,7 @@
           "stars"
         ]
       },
-      "ProductCategory": {
+      "ProductCategories": {
         "title": "ProductCategories",
         "type": "object",
         "properties": {
