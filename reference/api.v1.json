@@ -1119,6 +1119,178 @@
           }
         }
       }
+    },
+    "/review": {
+      "get": {
+        "summary": "Get Reviews",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-review",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "userId",
+            "description": "User ID"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "productId",
+            "description": "Product ID"
+          }
+        ],
+        "description": "Get Reviews for specific user or product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "post": {
+        "summary": "Create Review",
+        "operationId": "post-review",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Create Review",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Review"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "user_id": 0,
+                    "product_id": 0,
+                    "description": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/review/{reviewId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "reviewId",
+          "in": "path",
+          "required": true,
+          "description": "Review ID"
+        }
+      ],
+      "patch": {
+        "summary": "Update Review by ID",
+        "operationId": "patch-review-reviewId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Edit Review Description with given ID",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "description": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "delete": {
+        "summary": "Delete Review by ID",
+        "operationId": "delete-review-reviewId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Delete review with given ID"
+      }
     }
   },
   "components": {
