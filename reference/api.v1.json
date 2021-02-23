@@ -933,7 +933,7 @@
         "description": "Get upload (image, video, PDF) with given ID"
       }
     },
-    "/user/{userId}/password/reset": {
+    "/user/{userId}/password": {
       "parameters": [
         {
           "schema": {
@@ -1902,6 +1902,9 @@
           "name": {
             "type": "string",
             "default": "other"
+          },
+          "group_id": {
+            "$ref": "#/components/schemas/Category"
           }
         },
         "required": [
