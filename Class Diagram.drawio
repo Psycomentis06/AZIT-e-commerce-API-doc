@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-02-23T10:35:23.627Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="8pIVMgKWFuzOFf3iXHDi" version="14.4.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-23T10:57:14.570Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="y1zljvGoGzOZXPIkVsqG" version="14.4.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
-    <mxGraphModel dx="599" dy="310" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1447" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -199,7 +199,7 @@
         <mxCell id="LL3oQdZrADuqtk3ohifD-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cPLGYtPvWCTw3_Bh6L6v-78" source="cPLGYtPvWCTw3_Bh6L6v-79" target="cPLGYtPvWCTw3_Bh6L6v-78">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="LL3oQdZrADuqtk3ohifD-2" value="Group" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="LL3oQdZrADuqtk3ohifD-1">
+        <mxCell id="LL3oQdZrADuqtk3ohifD-2" value="Parent Category" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="LL3oQdZrADuqtk3ohifD-1">
           <mxGeometry x="-0.2113" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -299,7 +299,7 @@
         <mxCell id="cPLGYtPvWCTw3_Bh6L6v-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.012;entryY=-0.135;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cPLGYtPvWCTw3_Bh6L6v-20" target="cPLGYtPvWCTw3_Bh6L6v-80" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cPLGYtPvWCTw3_Bh6L6v-136" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="cPLGYtPvWCTw3_Bh6L6v-101" vertex="1" connectable="0">
+        <mxCell id="cPLGYtPvWCTw3_Bh6L6v-136" value="1.*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="cPLGYtPvWCTw3_Bh6L6v-101" vertex="1" connectable="0">
           <mxGeometry x="-0.9255" y="3" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
