@@ -1977,7 +1977,7 @@
         ]
       },
       "ProductCategory": {
-        "title": "ProductCategory",
+        "title": "ProductCategories",
         "type": "object",
         "properties": {
           "product_id": {
