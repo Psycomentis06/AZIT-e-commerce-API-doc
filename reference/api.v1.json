@@ -2558,6 +2558,140 @@
           }
         ]
       }
+    },
+    "/country": {
+      "get": {
+        "summary": "Get countries",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-country",
+        "description": "Get countries"
+      },
+      "post": {
+        "summary": "Create country",
+        "operationId": "post-country",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Create country"
+      }
+    },
+    "/country/{countryId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "countryId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get country by ID",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-country-countryId",
+        "description": "Get country by ID"
+      },
+      "patch": {
+        "summary": "Update country",
+        "operationId": "patch-country-countryId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update country"
+      },
+      "delete": {
+        "summary": "Delete Country",
+        "operationId": "delete-country-countryId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete Country"
+      }
+    },
+    "/country/{countryId}/city": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "countryId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get country cities",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-country-countryId-city",
+        "description": "Get country cities"
+      },
+      "post": {
+        "summary": "Create city for given country",
+        "operationId": "post-country-countryId-city",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Create city for given country"
+      }
+    },
+    "/country/{countryId}/city/{cityId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "countryId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "cityId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get country's city",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-country-countryId-city-cityId",
+        "description": "Get country's city"
+      },
+      "patch": {
+        "summary": "Update country's city",
+        "operationId": "patch-country-countryId-city-cityId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update country's city"
+      },
+      "delete": {
+        "summary": "Delete country's city",
+        "operationId": "delete-country-countryId-city-cityId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete country's city"
+      }
     }
   },
   "components": {
