@@ -2305,6 +2305,16 @@
             "description": "Type of uploads (image, video, document)"
           }
         ]
+      },
+      "post": {
+        "summary": "Create product upload",
+        "operationId": "post-product-productId-upload",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Create product upload"
       }
     },
     "/product/{productId}/item/{itemId}/upload": {
@@ -2350,10 +2360,92 @@
           }
         },
         "description": "Create product item upload"
+      }
+    },
+    "/product/{productId}/upload/{uploadId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "productId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "uploadId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get product upload",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-product-productId-upload-uploadId",
+        "description": "Get product upload"
+      },
+      "patch": {
+        "summary": "Update product upload",
+        "operationId": "patch-product-productId-upload-uploadId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update product upload"
+      },
+      "delete": {
+        "summary": "Delete product upload",
+        "operationId": "delete-product-productId-upload-uploadId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete product upload"
+      }
+    },
+    "/product/{productId}/item/{itemId}/upload/{uploadId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "productId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "itemId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "uploadId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get product item is upload",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-product-productId-item-itemId-upload-uploadId",
+        "description": "Get product item is upload"
       },
       "patch": {
         "summary": "Update product item upload",
-        "operationId": "patch-product-productId-item-itemId-upload",
+        "operationId": "patch-product-productId-item-itemId-upload-uploadId",
         "responses": {
           "200": {
             "description": "OK"
@@ -2362,14 +2454,14 @@
         "description": "Update product item upload"
       },
       "delete": {
-        "summary": "Delete product item upload",
-        "operationId": "delete-product-productId-item-itemId-upload",
+        "summary": "Delete product upload item",
+        "operationId": "delete-product-productId-item-itemId-upload-uploadId",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
-        "description": "Delete product item upload"
+        "description": "Delete product upload item"
       }
     }
   },
