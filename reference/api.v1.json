@@ -1330,7 +1330,7 @@
         ]
       }
     },
-    "/wishlist": {
+    "/user/{userId}/wishlist": {
       "get": {
         "summary": "Get user's Wishlist",
         "tags": [],
@@ -1387,15 +1387,6 @@
               "type": "number"
             },
             "in": "query",
-            "name": "userId",
-            "description": "User ID",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "number"
-            },
-            "in": "query",
             "name": "limit"
           },
           {
@@ -1432,7 +1423,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WishList"
+                "$ref": "#/components/schemas/Product"
               }
             }
           },
@@ -1482,6 +1473,41 @@
             "description": "Product ID"
           }
         ]
+      },
+      "parameters": [],
+      "patch": {
+        "summary": "Update user is Wishlist",
+        "operationId": "patch-user-userId-wishlist",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "Update user is Wishlist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        }
       }
     },
     "/rate": {
@@ -2593,7 +2619,9 @@
         "type": "apiKey",
         "in": "header"
       }
-    }
+    },
+    "parameters": {},
+    "examples": {}
   },
   "security": [
     {
