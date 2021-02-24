@@ -2692,6 +2692,87 @@
         },
         "description": "Delete country's city"
       }
+    },
+    "/category": {
+      "get": {
+        "summary": "Get all categories",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-category",
+        "description": "Get all categories",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "parent"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "limit"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "offset"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create category",
+        "operationId": "post-category",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Create category"
+      }
+    },
+    "/category/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get category and its child's",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-category-id",
+        "description": ""
+      },
+      "patch": {
+        "summary": "Update Category",
+        "operationId": "patch-category-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update Category"
+      },
+      "delete": {
+        "summary": "Delete Category",
+        "operationId": "delete-category-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete Category"
+      }
     }
   },
   "components": {
