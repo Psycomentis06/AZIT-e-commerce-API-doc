@@ -710,115 +710,6 @@
         "description": "Remove order with matching userID"
       }
     },
-    "/upload": {
-      "get": {
-        "summary": "Get upload with ID",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "uploads": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Upload"
-                      }
-                    }
-                  }
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {
-                      "uploads": [
-                        {
-                          "id": 0,
-                          "name": "string",
-                          "url": "http://example.com",
-                          "type": 0
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "operationId": "get-upload",
-        "description": "Get all uploads",
-        "parameters": [
-          {
-            "schema": {
-              "type": "number"
-            },
-            "in": "query",
-            "name": "limit",
-            "description": "Max items to get"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "offset"
-          }
-        ]
-      },
-      "post": {
-        "summary": "Create new upload",
-        "operationId": "post-upload",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Upload"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Upload"
-              },
-              "examples": {
-                "example-1": {
-                  "value": {
-                    "name": "string",
-                    "url": "http://example.com",
-                    "type": 0
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "Create new upload"
-      }
-    },
     "/upload/{uploadId}": {
       "parameters": [
         {
@@ -2356,6 +2247,129 @@
           }
         },
         "description": "Delete Product item"
+      }
+    },
+    "/product/{productId}/upload": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "productId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get product uploads",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Upload"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-product-productId-upload",
+        "description": "Get product uploads",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "type",
+            "description": "Type of uploads (image, video, document)"
+          }
+        ]
+      }
+    },
+    "/product/{productId}/item/{itemId}/upload": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "productId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "itemId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get product items uploads",
+        "tags": [],
+        "operationId": "get-product-productId-item-itemId-upload",
+        "description": "Get product items uploads",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "type"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create product item upload",
+        "operationId": "post-product-productId-item-itemId-upload",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Create product item upload"
+      },
+      "patch": {
+        "summary": "Update product item upload",
+        "operationId": "patch-product-productId-item-itemId-upload",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update product item upload"
+      },
+      "delete": {
+        "summary": "Delete product item upload",
+        "operationId": "delete-product-productId-item-itemId-upload",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete product item upload"
       }
     }
   },
