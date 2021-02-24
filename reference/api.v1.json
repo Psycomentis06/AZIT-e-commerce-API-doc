@@ -691,7 +691,7 @@
         }
       ],
       "delete": {
-        "summary": "Remove order with users ID",
+        "summary": "Remove order with users' ID",
         "operationId": "delete-order-orderId",
         "responses": {
           "200": {
@@ -2462,6 +2462,65 @@
           }
         },
         "description": "Delete product upload item"
+      }
+    },
+    "/order/{orderId}/transaction": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "orderId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get order transaction info",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-order-orderId-transaction",
+        "description": "Get order transaction info"
+      },
+      "patch": {
+        "summary": "Update transaction",
+        "operationId": "patch-order-orderId-transaction",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Update transaction"
+      }
+    },
+    "/order/{orderId}/transaction/invoice": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "orderId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get transaction invoice json or PDF",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-order-orderId-transaction-invoice",
+        "description": "Get transaction invoice json or PDF",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "json"
+            },
+            "in": "query",
+            "name": "output",
+            "description": "response content type can be \"pdf\" or \"json\""
+          }
+        ]
       }
     }
   },
