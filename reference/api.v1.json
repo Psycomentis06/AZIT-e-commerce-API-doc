@@ -2522,6 +2522,42 @@
           }
         ]
       }
+    },
+    "/order/{orderId}/estimatedate": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "orderId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Estimate order delivery date by given location",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-order-orderId-estimatedate",
+        "description": "Estimate order delivery date by given location",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "country",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "city"
+          }
+        ]
+      }
     }
   },
   "components": {
