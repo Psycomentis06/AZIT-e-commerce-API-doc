@@ -2773,6 +2773,43 @@
         },
         "description": "Delete Category"
       }
+    },
+    "/product/{productId}/item/{itemId}/stock/check": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "productId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "itemId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Check Product item stock availability",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-product-productId-item-itemId-stock-check",
+        "description": "Check Product item stock availability",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "quantity",
+            "description": "How many items to order"
+          }
+        ]
+      }
     }
   },
   "components": {
