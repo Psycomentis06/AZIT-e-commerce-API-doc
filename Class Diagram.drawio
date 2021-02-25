@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-02-25T14:32:42.226Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="KH-YWTFkcj_jcPG5ykeB" version="14.4.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-02-25T15:57:41.657Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="C_1rUuYjM6k8yOaElAic" version="14.4.2" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
-    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2480" dy="1286" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -755,7 +755,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5PmnOBjD6HayWcvhpUcD" name="Use case">
-    <mxGraphModel dx="3020" dy="1125" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="4322" dy="1800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="4j_HtDmeJhG_Ac3navk8-0" />
         <mxCell id="4j_HtDmeJhG_Ac3navk8-1" parent="4j_HtDmeJhG_Ac3navk8-0" />
@@ -1631,6 +1631,32 @@
             </Array>
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rVae_LtzIeziCG1Udnn2" name="Sequence Diagram (Login)">
+    <mxGraphModel dx="599" dy="310" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-0" />
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-1" parent="GUqVb8hm-Z86d4MKhxqn-0" />
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-3" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="GUqVb8hm-Z86d4MKhxqn-1">
+          <mxGeometry x="30" y="30" width="20" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-5" value="User" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fillColor=#f5f5f5;fontColor=#333333;" vertex="1" parent="GUqVb8hm-Z86d4MKhxqn-1">
+          <mxGeometry x="20" y="70" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-6" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="GUqVb8hm-Z86d4MKhxqn-1">
+          <mxGeometry x="230" y="30" width="20" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-8" value="Server" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fillColor=#f5f5f5;fontColor=#333333;" vertex="1" parent="GUqVb8hm-Z86d4MKhxqn-1">
+          <mxGeometry x="215" y="70" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-9" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="GUqVb8hm-Z86d4MKhxqn-1">
+          <mxGeometry x="415" y="30" width="20" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="GUqVb8hm-Z86d4MKhxqn-11" value="Login API" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fillColor=#f5f5f5;fontColor=#333333;" vertex="1" parent="GUqVb8hm-Z86d4MKhxqn-1">
+          <mxGeometry x="390" y="70" width="70" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
