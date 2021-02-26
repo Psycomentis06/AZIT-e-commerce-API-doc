@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-26T10:14:35.820Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="btCi3qDHKLxUNFHTJRSt" version="14.4.3" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-02-26T10:15:31.290Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="fhTOcITGlk_fTSVNnKTU" version="14.4.3" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
     <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1757,24 +1757,24 @@
     </mxGraphModel>
   </diagram>
   <diagram id="wAqx6PBEK54Nt5snouEx" name="Sequence Diagram (Payment)">
-    <mxGraphModel dx="347" dy="180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="7YFVGrfQymJWmpYg42dU-0" />
         <mxCell id="7YFVGrfQymJWmpYg42dU-1" parent="7YFVGrfQymJWmpYg42dU-0" />
         <mxCell id="7YFVGrfQymJWmpYg42dU-2" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
-          <mxGeometry x="280" y="300" width="20" height="550" as="geometry" />
+          <mxGeometry x="280" y="300" width="20" height="780" as="geometry" />
         </mxCell>
         <mxCell id="7YFVGrfQymJWmpYg42dU-3" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
-          <mxGeometry x="720" y="300" width="20" height="540" as="geometry" />
+          <mxGeometry x="720" y="300" width="20" height="780" as="geometry" />
         </mxCell>
         <mxCell id="7YFVGrfQymJWmpYg42dU-4" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
-          <mxGeometry x="120" y="300" width="20" height="560" as="geometry" />
+          <mxGeometry x="120" y="300" width="20" height="780" as="geometry" />
         </mxCell>
         <mxCell id="7YFVGrfQymJWmpYg42dU-7" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-4">
           <mxGeometry x="5" y="70" width="10" height="180" as="geometry" />
         </mxCell>
         <mxCell id="7YFVGrfQymJWmpYg42dU-5" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
-          <mxGeometry x="460" y="300" width="20" height="550" as="geometry" />
+          <mxGeometry x="460" y="300" width="20" height="780" as="geometry" />
         </mxCell>
         <mxCell id="7YFVGrfQymJWmpYg42dU-8" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
           <mxGeometry x="50" y="380" width="740" height="670" as="geometry" />
@@ -1795,7 +1795,7 @@
           <mxGeometry x="435" y="330" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Z8135gaFJglWK6u1KB3x-6" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
-          <mxGeometry x="600" y="300" width="20" height="540" as="geometry" />
+          <mxGeometry x="600" y="300" width="20" height="780" as="geometry" />
         </mxCell>
         <mxCell id="Z8135gaFJglWK6u1KB3x-23" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFFFFF;" vertex="1" parent="Z8135gaFJglWK6u1KB3x-6">
           <mxGeometry y="360" width="20" height="80" as="geometry" />
