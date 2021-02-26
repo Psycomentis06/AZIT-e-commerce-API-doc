@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-26T09:04:16.109Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="vaybDzUsbqQD6MXxQqu1" version="14.4.3" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-02-26T09:46:19.676Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74" etag="MNG-KotJWBb9ZjBJXWWz" version="14.4.3" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
     <mxGraphModel dx="868" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1752,6 +1752,38 @@
             <mxPoint x="422.49" y="616.0000000000001" as="sourcePoint" />
             <mxPoint x="240" y="627" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wAqx6PBEK54Nt5snouEx" name="Sequence Diagram (Payment)">
+    <mxGraphModel dx="1021" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-0" />
+        <mxCell id="7YFVGrfQymJWmpYg42dU-1" parent="7YFVGrfQymJWmpYg42dU-0" />
+        <mxCell id="7YFVGrfQymJWmpYg42dU-2" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="310" y="310" width="20" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-3" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="680" y="310" width="20" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-4" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="150" y="310" width="20" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-7" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-4">
+          <mxGeometry x="5" y="70" width="10" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-5" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="490" y="310" width="20" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-8" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="80" y="390" width="670" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="7YFVGrfQymJWmpYg42dU-11" value="[ method = &quot;paypal&quot; ]" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#FFFFFF;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="125" y="430" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Z8135gaFJglWK6u1KB3x-0" value="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;User Payment sequence diagram&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="7YFVGrfQymJWmpYg42dU-1">
+          <mxGeometry x="290" y="100" width="270" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
