@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-06-05T13:30:24.467Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="mIasVCc9OK3HYJs81P_8" version="14.7.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-06-05T13:31:33.061Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="Poq5jDjZb-uyjKIQ0vhv" version="14.7.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
     <mxGraphModel dx="868" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -773,7 +773,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5PmnOBjD6HayWcvhpUcD" name="Use case">
-    <mxGraphModel dx="1871" dy="498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1573" dy="353" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="4j_HtDmeJhG_Ac3navk8-0" />
         <mxCell id="4j_HtDmeJhG_Ac3navk8-1" parent="4j_HtDmeJhG_Ac3navk8-0" />
@@ -1567,7 +1567,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IogExKZqkdW5vhvcyoWK-159" value="&amp;lt;&amp;lt;Includes&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0.701;exitY=0.039;exitDx=0;exitDy=0;exitPerimeter=0;" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-11" target="IogExKZqkdW5vhvcyoWK-135" edge="1">
+        <mxCell id="IogExKZqkdW5vhvcyoWK-159" value="&amp;lt;&amp;lt;Include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0.701;exitY=0.039;exitDx=0;exitDy=0;exitPerimeter=0;" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-11" target="IogExKZqkdW5vhvcyoWK-135" edge="1">
           <mxGeometry x="-0.2315" y="30" width="160" relative="1" as="geometry">
             <mxPoint x="44" y="510" as="sourcePoint" />
             <mxPoint x="16.120149418859683" y="223.2659620491873" as="targetPoint" />
@@ -1580,7 +1580,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IogExKZqkdW5vhvcyoWK-160" value="&amp;lt;&amp;lt;Includes&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.701;exitY=0.039;exitDx=0;exitDy=0;exitPerimeter=0;" parent="4j_HtDmeJhG_Ac3navk8-1" target="IogExKZqkdW5vhvcyoWK-134" edge="1">
+        <mxCell id="IogExKZqkdW5vhvcyoWK-160" value="&amp;lt;&amp;lt;Include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.701;exitY=0.039;exitDx=0;exitDy=0;exitPerimeter=0;" parent="4j_HtDmeJhG_Ac3navk8-1" target="IogExKZqkdW5vhvcyoWK-134" edge="1">
           <mxGeometry x="-0.2305" width="160" relative="1" as="geometry">
             <mxPoint x="53.1400000000001" y="522.73" as="sourcePoint" />
             <mxPoint x="-220.21992451004212" y="223.08701885825758" as="targetPoint" />
