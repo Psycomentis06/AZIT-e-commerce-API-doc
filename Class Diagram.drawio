@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-06-05T13:16:57.339Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="RMG8SIpgS6ZMaTJgANey" version="14.7.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-06-05T13:18:05.452Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="81P2IVUvHB-HV-ixcqzz" version="14.7.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
     <mxGraphModel dx="868" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -817,14 +817,6 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="IogExKZqkdW5vhvcyoWK-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-3" target="IogExKZqkdW5vhvcyoWK-13" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-735" y="540" />
-              <mxPoint x="-480" y="540" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="IogExKZqkdW5vhvcyoWK-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-3" target="4j_HtDmeJhG_Ac3navk8-11" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -1124,13 +1116,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="IogExKZqkdW5vhvcyoWK-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#647687;strokeColor=#314354;" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-55" target="IogExKZqkdW5vhvcyoWK-13" edge="1">
+        <mxCell id="IogExKZqkdW5vhvcyoWK-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#647687;strokeColor=#314354;" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-55" target="IogExKZqkdW5vhvcyoWK-137" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="135" y="855" />
               <mxPoint x="135" y="450" />
-              <mxPoint x="-432" y="450" />
+              <mxPoint x="-520" y="450" />
+              <mxPoint x="-520" y="390" />
+              <mxPoint x="-612" y="390" />
             </Array>
+            <mxPoint x="-432.5" y="510" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="4j_HtDmeJhG_Ac3navk8-55" value="« Actor »&lt;br&gt;&lt;b&gt;SMTP&lt;/b&gt;" style="html=1;dropTarget=0;fillColor=#647687;strokeColor=#314354;fontColor=#ffffff;" parent="4j_HtDmeJhG_Ac3navk8-1" vertex="1">
@@ -1171,9 +1166,6 @@
             <mxPoint x="32.37784401232648" y="860.9996932446072" as="sourcePoint" />
             <mxPoint x="-100" y="919.54" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="IogExKZqkdW5vhvcyoWK-13" value="Create Account" style="ellipse;whiteSpace=wrap;html=1;" parent="4j_HtDmeJhG_Ac3navk8-1" vertex="1">
-          <mxGeometry x="-480" y="510" width="95" height="50" as="geometry" />
         </mxCell>
         <mxCell id="IogExKZqkdW5vhvcyoWK-19" value="Invoice" style="ellipse;whiteSpace=wrap;html=1;" parent="4j_HtDmeJhG_Ac3navk8-1" vertex="1">
           <mxGeometry x="-355" y="1080" width="140" height="70" as="geometry" />
