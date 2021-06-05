@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-06-05T13:40:12.218Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="hSkeG_QS1ZgGpMGhdjA-" version="14.7.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-06-05T13:41:34.291Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="vudRIKTAh7-WGHVpU7dM" version="14.7.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
     <mxGraphModel dx="868" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1039,6 +1039,17 @@
         </mxCell>
         <mxCell id="4j_HtDmeJhG_Ac3navk8-38" value="Remove Item" style="ellipse;whiteSpace=wrap;html=1;" parent="4j_HtDmeJhG_Ac3navk8-1" vertex="1">
           <mxGeometry x="-275" y="740" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yolZZU34OS-7ugIh6uiA-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="4j_HtDmeJhG_Ac3navk8-1" source="4j_HtDmeJhG_Ac3navk8-41" target="4j_HtDmeJhG_Ac3navk8-32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-130" y="730" />
+              <mxPoint x="-70" y="730" />
+              <mxPoint x="-70" y="710" />
+              <mxPoint x="-50" y="710" />
+              <mxPoint x="-50" y="650" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="4j_HtDmeJhG_Ac3navk8-41" value="Add item(s)" style="ellipse;whiteSpace=wrap;html=1;" parent="4j_HtDmeJhG_Ac3navk8-1" vertex="1">
           <mxGeometry x="-175" y="740" width="90" height="60" as="geometry" />
