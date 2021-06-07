@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-07T10:40:40.290Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="l7W4ViniclzBc1EJCxmB" version="14.7.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-06-07T10:45:12.967Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="mB8kau3NbSdBhHfURdxs" version="14.7.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
-    <mxGraphModel dx="574" dy="321" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="475" dy="266" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -447,7 +447,7 @@
         <mxCell id="RaY6sL2JBbZHT8RDv4WS-33" value="id: long" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="RaY6sL2JBbZHT8RDv4WS-32" vertex="1">
           <mxGeometry y="40" width="190" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="RaY6sL2JBbZHT8RDv4WS-34" value="date: date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="RaY6sL2JBbZHT8RDv4WS-32" vertex="1">
+        <mxCell id="RaY6sL2JBbZHT8RDv4WS-34" value="requestDate: date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="RaY6sL2JBbZHT8RDv4WS-32" vertex="1">
           <mxGeometry y="66" width="190" height="26" as="geometry" />
         </mxCell>
         <mxCell id="RaY6sL2JBbZHT8RDv4WS-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="RaY6sL2JBbZHT8RDv4WS-26" target="RaY6sL2JBbZHT8RDv4WS-32" edge="1">
