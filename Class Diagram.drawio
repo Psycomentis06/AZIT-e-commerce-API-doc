@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-10T16:58:49.737Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="wyCZoC05gCji79JSpdYM" version="14.7.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-06-12T13:39:09.206Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="aW7v7skoJDprKAAqLVZ6" version="14.7.7" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ecommerce basic model">
-    <mxGraphModel dx="832" dy="465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2080" dy="1163" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -889,7 +889,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5PmnOBjD6HayWcvhpUcD" name="Use case">
-    <mxGraphModel dx="2237" dy="775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1682" dy="465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="4j_HtDmeJhG_Ac3navk8-0" />
         <mxCell id="4j_HtDmeJhG_Ac3navk8-1" parent="4j_HtDmeJhG_Ac3navk8-0" />
@@ -2104,6 +2104,35 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="305" y="1286" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="NTT8DYKUYcxHU4-zlSab" name="Filter products use case">
+    <mxGraphModel dx="979" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-0" />
+        <mxCell id="myk9nE-QL2VdzkWveZAA-1" parent="myk9nE-QL2VdzkWveZAA-0" />
+        <mxCell id="myk9nE-QL2VdzkWveZAA-2" value="Visitor" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="100" y="270" width="70" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-4" value="Filter products" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="480" y="190" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-5" value="By rate" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="340" y="330" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-6" value="By category" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="620" y="330" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-7" value="By title" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="620" y="50" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-8" value="Price between" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="340" y="50" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="myk9nE-QL2VdzkWveZAA-9" value="Sort by" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="myk9nE-QL2VdzkWveZAA-1">
+          <mxGeometry x="680" y="190" width="140" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
