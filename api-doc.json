@@ -1,0 +1,10615 @@
+{
+"swagger": "2.0",
+"info": {
+"description": "Api Documentation",
+"version": "1.0",
+"title": "Api Documentation",
+"termsOfService": "urn:tos",
+"contact": {},
+"license": {
+"name": "Apache 2.0",
+"url": "http://www.apache.org/licenses/LICENSE-2.0"
+}
+},
+"host": "localhost:8000",
+"basePath": "/",
+"tags": [
+{
+"name": "address-controller",
+"description": "Address Controller"
+},
+{
+"name": "basic-error-controller",
+"description": "Basic Error Controller"
+},
+{
+"name": "category-controller",
+"description": "Category Controller"
+},
+{
+"name": "city-controller",
+"description": "City Controller"
+},
+{
+"name": "country-controller",
+"description": "Country Controller"
+},
+{
+"name": "credit-card-controller",
+"description": "Credit Card Controller"
+},
+{
+"name": "credit-card-type-controller",
+"description": "Credit Card Type Controller"
+},
+{
+"name": "invoice-controller",
+"description": "Invoice Controller"
+},
+{
+"name": "main-controller",
+"description": "Main Controller"
+},
+{
+"name": "operation-handler",
+"description": "Operation Handler"
+},
+{
+"name": "order-controller",
+"description": "Order Controller"
+},
+{
+"name": "order-details-controller",
+"description": "Order Details Controller"
+},
+{
+"name": "pdf-controller",
+"description": "Pdf Controller"
+},
+{
+"name": "product-controller",
+"description": "Product Controller"
+},
+{
+"name": "rate-controller",
+"description": "Rate Controller"
+},
+{
+"name": "review-controller",
+"description": "Review Controller"
+},
+{
+"name": "shipping-controller",
+"description": "Shipping Controller"
+},
+{
+"name": "storage-controller",
+"description": "Storage Controller"
+},
+{
+"name": "tag-controller",
+"description": "Tag Controller"
+},
+{
+"name": "transaction-controller",
+"description": "Transaction Controller"
+},
+{
+"name": "upload-controller",
+"description": "Upload Controller"
+},
+{
+"name": "user-controller",
+"description": "User Controller"
+},
+{
+"name": "web-mvc-links-handler",
+"description": "Web Mvc Links Handler"
+},
+{
+"name": "website-controller",
+"description": "Website Controller"
+},
+{
+"name": "zip-code-controller",
+"description": "Zip Code Controller"
+}
+],
+"paths": {
+"/": {
+"get": {
+"tags": [
+"main-controller"
+],
+"summary": "home",
+"operationId": "homeUsingGET",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "string"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/actuator": {
+"get": {
+"tags": [
+"web-mvc-links-handler"
+],
+"summary": "links",
+"operationId": "linksUsingGET",
+"produces": [
+"application/json",
+"application/vnd.spring-boot.actuator.v2+json",
+"application/vnd.spring-boot.actuator.v3+json"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "object",
+"additionalProperties": {
+"$ref": "#/definitions/Link"
+}
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/actuator/health": {
+"get": {
+"tags": [
+"operation-handler"
+],
+"summary": "handle",
+"operationId": "handleUsingGET",
+"produces": [
+"application/json",
+"application/vnd.spring-boot.actuator.v2+json",
+"application/vnd.spring-boot.actuator.v3+json"
+],
+"parameters": [
+{
+"in": "body",
+"name": "body",
+"description": "body",
+"required": false,
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "string"
+}
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/actuator/health/**": {
+"get": {
+"tags": [
+"operation-handler"
+],
+"summary": "handle",
+"operationId": "handleUsingGET_1",
+"produces": [
+"application/json",
+"application/vnd.spring-boot.actuator.v2+json",
+"application/vnd.spring-boot.actuator.v3+json"
+],
+"parameters": [
+{
+"in": "body",
+"name": "body",
+"description": "body",
+"required": false,
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "string"
+}
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/addresses": {
+"get": {
+"tags": [
+"address-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_1",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "matches",
+"in": "query",
+"description": "matches",
+"required": false,
+"type": "boolean",
+"default": false
+},
+{
+"name": "name",
+"in": "query",
+"description": "name",
+"required": false,
+"type": "string"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "address"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Address»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/addresses/address": {
+"post": {
+"tags": [
+"address-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "address",
+"description": "address",
+"required": true,
+"schema": {
+"$ref": "#/definitions/AddressReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/AddressRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"address-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "address",
+"description": "address",
+"required": true,
+"schema": {
+"$ref": "#/definitions/AddressReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"address-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "address",
+"description": "address",
+"required": true,
+"schema": {
+"$ref": "#/definitions/AddressReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/AddressRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/addresses/address/{id}": {
+"get": {
+"tags": [
+"address-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/AddressRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"address-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/addresses/list": {
+"get": {
+"tags": [
+"address-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "matches",
+"in": "query",
+"description": "matches",
+"required": false,
+"type": "boolean",
+"default": false
+},
+{
+"name": "name",
+"in": "query",
+"description": "name",
+"required": false,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/AddressRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/categories": {
+"get": {
+"tags": [
+"category-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_3",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "name"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Category»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/categories/category": {
+"post": {
+"tags": [
+"category-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_1",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "category",
+"description": "category",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Category"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Category"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"category-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_1",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "category",
+"description": "category",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Category"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"category-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_1",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "category",
+"description": "category",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Category"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Category"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/categories/category/{id}": {
+"get": {
+"tags": [
+"category-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_1",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Category"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"category-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_1",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/categories/list": {
+"get": {
+"tags": [
+"category-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_2",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "parent",
+"in": "query",
+"description": "parent",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/cities": {
+"get": {
+"tags": [
+"city-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_5",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "name"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«City»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/cities/city": {
+"post": {
+"tags": [
+"city-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_2",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "city",
+"description": "city",
+"required": true,
+"schema": {
+"$ref": "#/definitions/City"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/City"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"city-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_2",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "city",
+"description": "city",
+"required": true,
+"schema": {
+"$ref": "#/definitions/City"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"city-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_2",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "city",
+"description": "city",
+"required": true,
+"schema": {
+"$ref": "#/definitions/City"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/City"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/cities/city/{id}": {
+"get": {
+"tags": [
+"city-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_2",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/City"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"city-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_2",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/cities/list": {
+"get": {
+"tags": [
+"city-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_4",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/City"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/countries": {
+"get": {
+"tags": [
+"country-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_7",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "name"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Country»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/countries/country": {
+"post": {
+"tags": [
+"country-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_3",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "country",
+"description": "country",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Country"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Country"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"country-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_3",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "country",
+"description": "country",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Country"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"country-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_3",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "country",
+"description": "country",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Country"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Country"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/countries/country/{id}": {
+"get": {
+"tags": [
+"country-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_3",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Country"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"country-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_3",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/countries/list": {
+"get": {
+"tags": [
+"country-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_6",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Country"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/credit_card_types": {
+"get": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_11",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "type"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«CreditCardType»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/credit_card_types/credit_card_type": {
+"post": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_5",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "creditCardType",
+"description": "creditCardType",
+"required": true,
+"schema": {
+"$ref": "#/definitions/CreditCardType"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/CreditCardType"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_5",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "creditcardtype",
+"description": "creditcardtype",
+"required": true,
+"schema": {
+"$ref": "#/definitions/CreditCardType"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_5",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "creditcardtype",
+"description": "creditcardtype",
+"required": true,
+"schema": {
+"$ref": "#/definitions/CreditCardType"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/CreditCardType"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/credit_card_types/credit_card_type/{id}": {
+"get": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_5",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/CreditCardType"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_5",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/credit_card_types/list": {
+"get": {
+"tags": [
+"credit-card-type-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_10",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/CreditCardType"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/credit_cards": {
+"get": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_9",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "expireDate"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«CreditCard»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/credit_cards/credit_card": {
+"post": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_4",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "creditCard",
+"description": "creditCard",
+"required": true,
+"schema": {
+"$ref": "#/definitions/CreditCard"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/CreditCard"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_4",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "creditCard",
+"description": "creditCard",
+"required": true,
+"schema": {
+"$ref": "#/definitions/CreditCard"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_4",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "creditCard",
+"description": "creditCard",
+"required": true,
+"schema": {
+"$ref": "#/definitions/CreditCard"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/CreditCard"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/credit_cards/credit_card/{ccNum}": {
+"get": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_4",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "ccNum",
+"in": "path",
+"description": "ccNum",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/CreditCard"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_4",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "ccNum",
+"in": "path",
+"description": "ccNum",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/credit_cards/list": {
+"get": {
+"tags": [
+"credit-card-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_8",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/CreditCard"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/invoice/{shippingId}": {
+"get": {
+"tags": [
+"pdf-controller"
+],
+"summary": "getInvoice",
+"operationId": "getInvoiceUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "image_type",
+"in": "query",
+"description": "image_type",
+"required": false,
+"type": "string",
+"default": "png"
+},
+{
+"name": "output",
+"in": "query",
+"description": "output",
+"required": false,
+"type": "string",
+"default": "pdf"
+},
+{
+"name": "shippingId",
+"in": "path",
+"description": "shippingId",
+"required": true,
+"type": "integer",
+"format": "int64"
+},
+{
+"name": "style",
+"in": "query",
+"description": "style",
+"required": false,
+"type": "boolean",
+"default": true
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/invoices": {
+"get": {
+"tags": [
+"invoice-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_13",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "type"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Invoice»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/invoices/invoice": {
+"post": {
+"tags": [
+"invoice-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_6",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "invoice",
+"description": "invoice",
+"required": true,
+"schema": {
+"$ref": "#/definitions/InvoiceReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/InvoiceRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"invoice-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_6",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "invoice",
+"description": "invoice",
+"required": true,
+"schema": {
+"$ref": "#/definitions/InvoiceReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"invoice-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_6",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "invoice",
+"description": "invoice",
+"required": true,
+"schema": {
+"$ref": "#/definitions/InvoiceReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/InvoiceRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/invoices/invoice/{id}": {
+"get": {
+"tags": [
+"invoice-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_6",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/InvoiceRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"invoice-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_6",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/invoices/list": {
+"get": {
+"tags": [
+"invoice-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_12",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/InvoiceRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/order_details": {
+"get": {
+"tags": [
+"order-details-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_17",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "price"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«OrderDetails»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/order_details/all": {
+"get": {
+"tags": [
+"order-details-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_16",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderDetailsRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/order_details/order_detail": {
+"post": {
+"tags": [
+"order-details-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_8",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "orderDetails",
+"description": "orderDetails",
+"required": true,
+"schema": {
+"$ref": "#/definitions/OrderDetailsReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/OrderDetailsRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"order-details-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_8",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "orderdetails",
+"description": "orderdetails",
+"required": true,
+"schema": {
+"$ref": "#/definitions/OrderDetailsReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"order-details-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_8",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "orderdetails",
+"description": "orderdetails",
+"required": true,
+"schema": {
+"$ref": "#/definitions/OrderDetailsReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/OrderDetailsRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/order_details/order_detail/{id}": {
+"get": {
+"tags": [
+"order-details-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_8",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/OrderDetailsRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"order-details-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_8",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/orders": {
+"get": {
+"tags": [
+"order-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_15",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "orderDate"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Order»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/orders/list": {
+"get": {
+"tags": [
+"order-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_14",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/orders/order": {
+"post": {
+"tags": [
+"order-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_7",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "order",
+"description": "order",
+"required": true,
+"schema": {
+"$ref": "#/definitions/OrderReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/OrderRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"order-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_7",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "order",
+"description": "order",
+"required": true,
+"schema": {
+"$ref": "#/definitions/OrderReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"order-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_7",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "order",
+"description": "order",
+"required": true,
+"schema": {
+"$ref": "#/definitions/OrderReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/OrderRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/orders/order/user/{id}": {
+"get": {
+"tags": [
+"order-controller"
+],
+"summary": "getAllByUser",
+"operationId": "getAllByUserUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+},
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "orderDate"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«BaseOrderProjection»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/orders/order/{id}": {
+"get": {
+"tags": [
+"order-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_7",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/OrderRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"order-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_7",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/products": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_19",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "name"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«BaseProductProjection»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/products/filter": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "filterProduct",
+"operationId": "filterProductUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "category",
+"in": "query",
+"description": "category",
+"required": false,
+"type": "integer",
+"format": "int64"
+},
+{
+"name": "initial_price",
+"in": "query",
+"description": "initial_price",
+"required": false,
+"type": "number",
+"format": "float"
+},
+{
+"name": "initial_rate",
+"in": "query",
+"description": "initial_rate",
+"required": false,
+"type": "number",
+"format": "double"
+},
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "max_price",
+"in": "query",
+"description": "max_price",
+"required": false,
+"type": "number",
+"format": "float"
+},
+{
+"name": "max_rate",
+"in": "query",
+"description": "max_rate",
+"required": false,
+"type": "number",
+"format": "double"
+},
+{
+"name": "name",
+"in": "query",
+"description": "name",
+"required": false,
+"type": "string"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "name"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+},
+{
+"name": "tag",
+"in": "query",
+"description": "tag",
+"required": false,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Product»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/products/latest": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getLatest",
+"operationId": "getLatestUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«BaseProductProjection»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/products/list": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_18",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/BaseProductProjection"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/products/new": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getNew",
+"operationId": "getNewUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Product»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/products/popular": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getPopular",
+"operationId": "getPopularUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Product»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/products/product": {
+"post": {
+"tags": [
+"product-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_9",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "product",
+"description": "product",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Product"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Product"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"product-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_9",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "product",
+"description": "product",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Product"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"product-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_9",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "product",
+"description": "product",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Product"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Product"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/products/product/{id}": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_9",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/BaseProductProjection"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"product-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_9",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/products/product/{id}/reviews": {
+"get": {
+"tags": [
+"product-controller"
+],
+"summary": "getReviews",
+"operationId": "getReviewsUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ProductReviewsProjection"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/rates": {
+"get": {
+"tags": [
+"rate-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_21",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "value"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Rate»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/rates/list": {
+"get": {
+"tags": [
+"rate-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_20",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/RateRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/rates/rate": {
+"post": {
+"tags": [
+"rate-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_10",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "rate",
+"description": "rate",
+"required": true,
+"schema": {
+"$ref": "#/definitions/RateReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/RateRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"rate-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_10",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "rate",
+"description": "rate",
+"required": true,
+"schema": {
+"$ref": "#/definitions/RateReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/rates/rate/{id}": {
+"get": {
+"tags": [
+"rate-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_10",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/RateRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"rate-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_10",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "object"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"rate-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_10",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+},
+{
+"in": "body",
+"name": "rate",
+"description": "rate",
+"required": true,
+"schema": {
+"$ref": "#/definitions/RateReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "object"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/rates/rate/{productId}/{userId}": {
+"get": {
+"tags": [
+"rate-controller"
+],
+"summary": "getRateByUserAndProduct",
+"operationId": "getRateByUserAndProductUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "productId",
+"in": "path",
+"description": "productId",
+"required": true,
+"type": "integer",
+"format": "int64"
+},
+{
+"name": "userId",
+"in": "path",
+"description": "userId",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/BaseRateProjection"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/reviews": {
+"get": {
+"tags": [
+"review-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_23",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "createdAt"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Review»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/reviews/list": {
+"get": {
+"tags": [
+"review-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_22",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ReviewRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/reviews/review": {
+"post": {
+"tags": [
+"review-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_11",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "review",
+"description": "review",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ReviewReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ReviewRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"review-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_11",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "review",
+"description": "review",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ReviewReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/reviews/review/product/{productId}": {
+"get": {
+"tags": [
+"review-controller"
+],
+"summary": "getByProduct",
+"operationId": "getByProductUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 15,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "productId",
+"in": "path",
+"description": "productId",
+"required": true,
+"type": "integer",
+"format": "int64"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "createdAt"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«ReviewsUsersProjection»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/reviews/review/user/{userId}/{productId}": {
+"get": {
+"tags": [
+"review-controller"
+],
+"summary": "getByProductAndUser",
+"operationId": "getByProductAndUserUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "productId",
+"in": "path",
+"description": "productId",
+"required": true,
+"type": "integer",
+"format": "int64"
+},
+{
+"name": "userId",
+"in": "path",
+"description": "userId",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ReviewsUsersProjection"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/reviews/review/{id}": {
+"get": {
+"tags": [
+"review-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_11",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ReviewRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"review-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_11",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "object"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"review-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_11",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+},
+{
+"in": "body",
+"name": "review",
+"description": "review",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ReviewReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "object"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/shipment": {
+"get": {
+"tags": [
+"shipping-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_25",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "startDate"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Shipping»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/shipment/list": {
+"get": {
+"tags": [
+"shipping-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_24",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ShippingRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/shipment/shipping": {
+"post": {
+"tags": [
+"shipping-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_12",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "shipping",
+"description": "shipping",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ShippingReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ShippingRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"shipping-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_12",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "shipping",
+"description": "shipping",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ShippingReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"shipping-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_12",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "shipping",
+"description": "shipping",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ShippingReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ShippingRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/shipment/shipping/{id}": {
+"get": {
+"tags": [
+"shipping-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_12",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ShippingRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"shipping-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_12",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/tags": {
+"get": {
+"tags": [
+"tag-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_27",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "tag"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Tag»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/tags/list": {
+"get": {
+"tags": [
+"tag-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_26",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Tag"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/tags/tag": {
+"post": {
+"tags": [
+"tag-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_13",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "tag",
+"description": "tag",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Tag"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Tag"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"tag-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_13",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "tag",
+"description": "tag",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Tag"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"tag-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_13",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "tag",
+"description": "tag",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Tag"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Tag"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/tags/tag/{id}": {
+"get": {
+"tags": [
+"tag-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_13",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Tag"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"tag-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_13",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/transactions": {
+"get": {
+"tags": [
+"transaction-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_29",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "date"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Transaction»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/transactions/list": {
+"get": {
+"tags": [
+"transaction-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_28",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/TransactionRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/transactions/transaction": {
+"post": {
+"tags": [
+"transaction-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_14",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "transaction",
+"description": "transaction",
+"required": true,
+"schema": {
+"$ref": "#/definitions/TransactionReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/TransactionRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"transaction-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_14",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "transaction",
+"description": "transaction",
+"required": true,
+"schema": {
+"$ref": "#/definitions/TransactionReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"transaction-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_14",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "transaction",
+"description": "transaction",
+"required": true,
+"schema": {
+"$ref": "#/definitions/TransactionReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/TransactionRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/transactions/transaction/{id}": {
+"get": {
+"tags": [
+"transaction-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_14",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/TransactionRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"transaction-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_14",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/uploads": {
+"get": {
+"tags": [
+"upload-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_31",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "uploadDate"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Upload»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/uploads/list": {
+"get": {
+"tags": [
+"upload-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_30",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Upload"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/uploads/storage": {
+"get": {
+"tags": [
+"storage-controller"
+],
+"summary": "getUploads",
+"operationId": "getUploadsUsingGET",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Stream«Path»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"post": {
+"tags": [
+"storage-controller"
+],
+"summary": "createFile",
+"operationId": "createFileUsingPOST",
+"consumes": [
+"multipart/form-data"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "file",
+"description": "file",
+"required": true,
+"schema": {
+"type": "string",
+"format": "binary"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"storage-controller"
+],
+"summary": "deleteAll",
+"operationId": "deleteAllUsingDELETE",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object",
+"additionalProperties": {
+"type": "object"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/uploads/storage/resource/{name}": {
+"get": {
+"tags": [
+"storage-controller"
+],
+"summary": "getResource",
+"operationId": "getResourceUsingGET",
+"produces": [
+"application/json",
+"application/octet-stream",
+"application/pdf",
+"image/jpeg",
+"image/png"
+],
+"parameters": [
+{
+"name": "name",
+"in": "path",
+"description": "name",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Resource"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/uploads/storage/{name}": {
+"get": {
+"tags": [
+"storage-controller"
+],
+"summary": "getPath",
+"operationId": "getPathUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "name",
+"in": "path",
+"description": "name",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Path"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/uploads/upload": {
+"post": {
+"tags": [
+"upload-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_15",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "upload",
+"description": "upload",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"upload-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_15",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "upload",
+"description": "upload",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"upload-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_15",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "upload",
+"description": "upload",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/uploads/upload/{id}": {
+"get": {
+"tags": [
+"upload-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_15",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Upload"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"upload-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_15",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ResponseEntity"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_33",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "createdAt"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«User»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"user-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_16",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "user",
+"description": "user",
+"required": true,
+"schema": {
+"$ref": "#/definitions/UserReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users/filter": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "filterUsers",
+"operationId": "filterUsersUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "address",
+"in": "query",
+"description": "address",
+"required": false,
+"type": "string"
+},
+{
+"name": "city",
+"in": "query",
+"description": "city",
+"required": false,
+"type": "string"
+},
+{
+"name": "country",
+"in": "query",
+"description": "country",
+"required": false,
+"type": "string"
+},
+{
+"name": "end_date",
+"in": "query",
+"description": "end_date",
+"required": false,
+"type": "string",
+"format": "date"
+},
+{
+"name": "first_name",
+"in": "query",
+"description": "first_name",
+"required": false,
+"type": "string"
+},
+{
+"name": "last_name",
+"in": "query",
+"description": "last_name",
+"required": false,
+"type": "string"
+},
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "phoneNumber",
+"in": "query",
+"description": "phoneNumber",
+"required": false,
+"type": "string"
+},
+{
+"name": "role",
+"in": "query",
+"description": "role",
+"required": false,
+"type": "string",
+"enum": [
+"ROLE_ADMIN",
+"ROLE_SUPERADMIN",
+"ROLE_USER"
+]
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "createdAt"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+},
+{
+"name": "start_date",
+"in": "query",
+"description": "start_date",
+"required": false,
+"type": "string",
+"format": "date"
+},
+{
+"name": "status",
+"in": "query",
+"description": "status",
+"required": false,
+"type": "string",
+"enum": [
+"ACTIVE",
+"CANCELED",
+"IN_PROGRESS",
+"IN_QUEUE",
+"PAUSED",
+"SUSPENDED"
+]
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«User»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/list": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_32",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/UserRes"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/user": {
+"post": {
+"tags": [
+"user-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_16",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "user",
+"description": "user",
+"required": true,
+"schema": {
+"$ref": "#/definitions/UserReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/UserRes"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"patch": {
+"tags": [
+"user-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_16",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "user",
+"description": "user",
+"required": true,
+"schema": {
+"$ref": "#/definitions/UserReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/UserRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users/user/simple/{id}": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getUserSimple",
+"operationId": "getUserSimpleUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/SimpleUserProjection"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/user/{id}": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_16",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/UserRes"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/user/{id}/rate": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getRate",
+"operationId": "getRateUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Rate"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/user/{id}/review": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getReview",
+"operationId": "getReviewUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Review"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/user/{id}/status": {
+"patch": {
+"tags": [
+"user-controller"
+],
+"summary": "updateState",
+"operationId": "updateStateUsingPATCH",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+},
+{
+"in": "body",
+"name": "status",
+"description": "status",
+"required": true,
+"schema": {
+"$ref": "#/definitions/StatusReq"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/StatusRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users/user/{id}/wishlist": {
+"get": {
+"tags": [
+"user-controller"
+],
+"summary": "getWishList",
+"operationId": "getWishListUsingGET",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Product"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/users/{id}": {
+"delete": {
+"tags": [
+"user-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_16",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users/{id}/address": {
+"patch": {
+"tags": [
+"user-controller"
+],
+"summary": "updateAddress",
+"operationId": "updateAddressUsingPATCH",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "address",
+"description": "address",
+"required": true,
+"schema": {
+"$ref": "#/definitions/AddressReq"
+}
+},
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/AddressRes"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users/{id}/roles": {
+"patch": {
+"tags": [
+"user-controller"
+],
+"summary": "updateRoles",
+"operationId": "updateRolesUsingPATCH",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+},
+{
+"in": "body",
+"name": "roles",
+"description": "roles",
+"required": true,
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Role"
+}
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Role"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/users/{id}/wishlist": {
+"patch": {
+"tags": [
+"user-controller"
+],
+"summary": "updateWishlist",
+"operationId": "updateWishlistUsingPATCH",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "string"
+},
+{
+"in": "body",
+"name": "product",
+"description": "product",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Product"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Product"
+}
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/websites": {
+"get": {
+"tags": [
+"website-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_35",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "version"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«Website»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/websites/list": {
+"get": {
+"tags": [
+"website-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_34",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Website"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/websites/website": {
+"post": {
+"tags": [
+"website-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_17",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "website",
+"description": "website",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Website"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Website"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"website-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_17",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "website",
+"description": "website",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Website"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"website-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_17",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "website",
+"description": "website",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Website"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Website"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/websites/website/{id}": {
+"get": {
+"tags": [
+"website-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_17",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Website"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"website-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_17",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/zipcodes": {
+"get": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_37",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "limit",
+"in": "query",
+"description": "limit",
+"required": false,
+"type": "integer",
+"default": 20,
+"format": "int32"
+},
+{
+"name": "offset",
+"in": "query",
+"description": "offset",
+"required": false,
+"type": "integer",
+"default": 0,
+"format": "int32"
+},
+{
+"name": "sort_by",
+"in": "query",
+"description": "sort_by",
+"required": false,
+"type": "string",
+"default": "code"
+},
+{
+"name": "sort_inverse",
+"in": "query",
+"description": "sort_inverse",
+"required": false,
+"type": "boolean",
+"default": false
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/Page«ZipCode»"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/zipcodes/list": {
+"get": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "getAll",
+"operationId": "getAllUsingGET_36",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ZipCode"
+}
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/zipcodes/zipCode": {
+"post": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "create",
+"operationId": "createUsingPOST_18",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "zipCode",
+"description": "zipCode",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ZipCode"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ZipCode"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/api/v1/zipcodes/zipcode": {
+"delete": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "delete",
+"operationId": "deleteUsingDELETE_18",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "zipcode",
+"description": "zipcode",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ZipCode"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "update",
+"operationId": "updateUsingPATCH_18",
+"consumes": [
+"application/json"
+],
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"in": "body",
+"name": "zipcode",
+"description": "zipcode",
+"required": true,
+"schema": {
+"$ref": "#/definitions/ZipCode"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ZipCode"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/api/v1/zipcodes/zipcode/{id}": {
+"get": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "getById",
+"operationId": "getByIdUsingGET_18",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ZipCode"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"zip-code-controller"
+],
+"summary": "deleteById",
+"operationId": "deleteByIdUsingDELETE_18",
+"produces": [
+"*/*"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "id",
+"required": true,
+"type": "integer",
+"format": "int64"
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "boolean"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/error": {
+"get": {
+"tags": [
+"main-controller"
+],
+"summary": "error",
+"operationId": "errorUsingGET_1",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "string"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"head": {
+"tags": [
+"basic-error-controller"
+],
+"summary": "errorHtml",
+"operationId": "errorHtmlUsingHEAD",
+"consumes": [
+"application/json"
+],
+"produces": [
+"text/html"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ModelAndView"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"post": {
+"tags": [
+"basic-error-controller"
+],
+"summary": "errorHtml",
+"operationId": "errorHtmlUsingPOST",
+"consumes": [
+"application/json"
+],
+"produces": [
+"text/html"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ModelAndView"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"put": {
+"tags": [
+"basic-error-controller"
+],
+"summary": "errorHtml",
+"operationId": "errorHtmlUsingPUT",
+"consumes": [
+"application/json"
+],
+"produces": [
+"text/html"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ModelAndView"
+}
+},
+"201": {
+"description": "Created"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+},
+"delete": {
+"tags": [
+"basic-error-controller"
+],
+"summary": "errorHtml",
+"operationId": "errorHtmlUsingDELETE",
+"produces": [
+"text/html"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ModelAndView"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"options": {
+"tags": [
+"basic-error-controller"
+],
+"summary": "errorHtml",
+"operationId": "errorHtmlUsingOPTIONS",
+"consumes": [
+"application/json"
+],
+"produces": [
+"text/html"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ModelAndView"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+},
+"patch": {
+"tags": [
+"basic-error-controller"
+],
+"summary": "errorHtml",
+"operationId": "errorHtmlUsingPATCH",
+"consumes": [
+"application/json"
+],
+"produces": [
+"text/html"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"$ref": "#/definitions/ModelAndView"
+}
+},
+"204": {
+"description": "No Content"
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+}
+}
+}
+},
+"/html": {
+"get": {
+"tags": [
+"main-controller"
+],
+"summary": "getHtml",
+"operationId": "getHtmlUsingGET",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/img": {
+"get": {
+"tags": [
+"main-controller"
+],
+"summary": "getIMG",
+"operationId": "getIMGUsingGET",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+},
+"/pdf": {
+"get": {
+"tags": [
+"main-controller"
+],
+"summary": "getPdf",
+"operationId": "getPdfUsingGET",
+"produces": [
+"*/*"
+],
+"responses": {
+"200": {
+"description": "OK",
+"schema": {
+"type": "object"
+}
+},
+"401": {
+"description": "Unauthorized"
+},
+"403": {
+"description": "Forbidden"
+},
+"404": {
+"description": "Not Found"
+}
+}
+}
+}
+},
+"definitions": {
+"Address": {
+"type": "object",
+"required": [
+"address",
+"city"
+],
+"properties": {
+"address": {
+"type": "string"
+},
+"city": {
+"$ref": "#/definitions/City"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"user": {
+"$ref": "#/definitions/User"
+}
+},
+"title": "Address"
+},
+"AddressReq": {
+"type": "object",
+"required": [
+"address",
+"city"
+],
+"properties": {
+"address": {
+"type": "string"
+},
+"city": {
+"$ref": "#/definitions/City"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"user": {
+"$ref": "#/definitions/UserReq"
+}
+},
+"title": "AddressReq"
+},
+"AddressRes": {
+"type": "object",
+"required": [
+"address",
+"city"
+],
+"properties": {
+"address": {
+"type": "string"
+},
+"city": {
+"$ref": "#/definitions/City"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"user": {
+"$ref": "#/definitions/UserRes"
+}
+},
+"title": "AddressRes"
+},
+"BaseOrderProjection": {
+"type": "object",
+"properties": {
+"amount": {
+"type": "number",
+"format": "float"
+},
+"currency": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"orderDate": {
+"type": "string",
+"format": "date-time"
+},
+"shipping": {
+"type": "integer",
+"format": "int64"
+},
+"status": {
+"$ref": "#/definitions/StatusRes"
+},
+"taxFee": {
+"type": "number",
+"format": "float"
+},
+"transaction": {
+"type": "integer",
+"format": "int64"
+}
+},
+"title": "BaseOrderProjection"
+},
+"BaseProductProjection": {
+"type": "object",
+"properties": {
+"characteristics": {
+"type": "string"
+},
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"description": {
+"type": "string"
+},
+"details": {
+"type": "string"
+},
+"discount": {
+"type": "number",
+"format": "float"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"name": {
+"type": "string"
+},
+"overAllRate": {
+"type": "number",
+"format": "float"
+},
+"price": {
+"type": "number",
+"format": "float"
+},
+"sku": {
+"type": "string"
+},
+"stock": {
+"type": "integer",
+"format": "int32"
+},
+"uploads": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Upload"
+}
+}
+},
+"title": "BaseProductProjection"
+},
+"BaseRateProjection": {
+"type": "object",
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"user": {
+"$ref": "#/definitions/UserRes"
+},
+"value": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "BaseRateProjection"
+},
+"Category": {
+"type": "object",
+"required": [
+"name"
+],
+"properties": {
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"name": {
+"type": "string"
+},
+"parent": {
+"$ref": "#/definitions/Category"
+},
+"picture": {
+"type": "string"
+}
+},
+"title": "Category"
+},
+"City": {
+"type": "object",
+"required": [
+"country",
+"name"
+],
+"properties": {
+"country": {
+"$ref": "#/definitions/Country"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"name": {
+"type": "string"
+}
+},
+"title": "City"
+},
+"Country": {
+"type": "object",
+"required": [
+"name"
+],
+"properties": {
+"code": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"localCode": {
+"type": "string"
+},
+"name": {
+"type": "string"
+}
+},
+"title": "Country"
+},
+"CreditCard": {
+"type": "object",
+"required": [
+"ccNum",
+"expireDate"
+],
+"properties": {
+"ccNum": {
+"type": "string"
+},
+"expireDate": {
+"type": "string",
+"format": "date"
+}
+},
+"title": "CreditCard"
+},
+"CreditCardType": {
+"type": "object",
+"required": [
+"type"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"type": {
+"type": "string"
+}
+},
+"title": "CreditCardType"
+},
+"FileStore": {
+"type": "object",
+"properties": {
+"blockSize": {
+"type": "integer",
+"format": "int64"
+},
+"readOnly": {
+"type": "boolean"
+},
+"totalSpace": {
+"type": "integer",
+"format": "int64"
+},
+"unallocatedSpace": {
+"type": "integer",
+"format": "int64"
+},
+"usableSpace": {
+"type": "integer",
+"format": "int64"
+}
+},
+"title": "FileStore"
+},
+"FileSystem": {
+"type": "object",
+"properties": {
+"fileStores": {
+"$ref": "#/definitions/Iterable«FileStore»"
+},
+"open": {
+"type": "boolean"
+},
+"readOnly": {
+"type": "boolean"
+},
+"rootDirectories": {
+"$ref": "#/definitions/Iterable«Path»"
+},
+"separator": {
+"type": "string"
+},
+"userPrincipalLookupService": {
+"$ref": "#/definitions/UserPrincipalLookupService"
+}
+},
+"title": "FileSystem"
+},
+"Gender": {
+"type": "object",
+"properties": {
+"gender": {
+"type": "string",
+"enum": [
+"FEMALE",
+"MALE"
+]
+},
+"users": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/User"
+}
+}
+},
+"title": "Gender"
+},
+"GenderReq": {
+"type": "object",
+"properties": {
+"gender": {
+"type": "string",
+"enum": [
+"FEMALE",
+"MALE"
+]
+},
+"users": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/UserReq"
+}
+}
+},
+"title": "GenderReq"
+},
+"GenderRes": {
+"type": "object",
+"properties": {
+"gender": {
+"type": "string",
+"enum": [
+"FEMALE",
+"MALE"
+]
+},
+"users": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/UserRes"
+}
+}
+},
+"title": "GenderRes"
+},
+"InputStream": {
+"type": "object",
+"title": "InputStream"
+},
+"InvoiceReq": {
+"type": "object",
+"required": [
+"transaction"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"requestDate": {
+"type": "string",
+"format": "date-time"
+},
+"transaction": {
+"$ref": "#/definitions/TransactionReq"
+}
+},
+"title": "InvoiceReq"
+},
+"InvoiceRes": {
+"type": "object",
+"required": [
+"transaction"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"requestDate": {
+"type": "string",
+"format": "date-time"
+},
+"transaction": {
+"$ref": "#/definitions/TransactionRes"
+}
+},
+"title": "InvoiceRes"
+},
+"Iterable«FileStore»": {
+"type": "object",
+"title": "Iterable«FileStore»"
+},
+"Iterable«Path»": {
+"type": "object",
+"title": "Iterable«Path»"
+},
+"Link": {
+"type": "object",
+"properties": {
+"href": {
+"type": "string"
+},
+"templated": {
+"type": "boolean"
+}
+},
+"title": "Link"
+},
+"ModelAndView": {
+"type": "object",
+"properties": {
+"empty": {
+"type": "boolean"
+},
+"model": {
+"type": "object"
+},
+"modelMap": {
+"type": "object",
+"additionalProperties": {
+"type": "object"
+}
+},
+"reference": {
+"type": "boolean"
+},
+"status": {
+"type": "string",
+"enum": [
+"ACCEPTED",
+"ALREADY_REPORTED",
+"BAD_GATEWAY",
+"BAD_REQUEST",
+"BANDWIDTH_LIMIT_EXCEEDED",
+"CHECKPOINT",
+"CONFLICT",
+"CONTINUE",
+"CREATED",
+"DESTINATION_LOCKED",
+"EXPECTATION_FAILED",
+"FAILED_DEPENDENCY",
+"FORBIDDEN",
+"FOUND",
+"GATEWAY_TIMEOUT",
+"GONE",
+"HTTP_VERSION_NOT_SUPPORTED",
+"IM_USED",
+"INSUFFICIENT_SPACE_ON_RESOURCE",
+"INSUFFICIENT_STORAGE",
+"INTERNAL_SERVER_ERROR",
+"I_AM_A_TEAPOT",
+"LENGTH_REQUIRED",
+"LOCKED",
+"LOOP_DETECTED",
+"METHOD_FAILURE",
+"METHOD_NOT_ALLOWED",
+"MOVED_PERMANENTLY",
+"MOVED_TEMPORARILY",
+"MULTIPLE_CHOICES",
+"MULTI_STATUS",
+"NETWORK_AUTHENTICATION_REQUIRED",
+"NON_AUTHORITATIVE_INFORMATION",
+"NOT_ACCEPTABLE",
+"NOT_EXTENDED",
+"NOT_FOUND",
+"NOT_IMPLEMENTED",
+"NOT_MODIFIED",
+"NO_CONTENT",
+"OK",
+"PARTIAL_CONTENT",
+"PAYLOAD_TOO_LARGE",
+"PAYMENT_REQUIRED",
+"PERMANENT_REDIRECT",
+"PRECONDITION_FAILED",
+"PRECONDITION_REQUIRED",
+"PROCESSING",
+"PROXY_AUTHENTICATION_REQUIRED",
+"REQUESTED_RANGE_NOT_SATISFIABLE",
+"REQUEST_ENTITY_TOO_LARGE",
+"REQUEST_HEADER_FIELDS_TOO_LARGE",
+"REQUEST_TIMEOUT",
+"REQUEST_URI_TOO_LONG",
+"RESET_CONTENT",
+"SEE_OTHER",
+"SERVICE_UNAVAILABLE",
+"SWITCHING_PROTOCOLS",
+"TEMPORARY_REDIRECT",
+"TOO_EARLY",
+"TOO_MANY_REQUESTS",
+"UNAUTHORIZED",
+"UNAVAILABLE_FOR_LEGAL_REASONS",
+"UNPROCESSABLE_ENTITY",
+"UNSUPPORTED_MEDIA_TYPE",
+"UPGRADE_REQUIRED",
+"URI_TOO_LONG",
+"USE_PROXY",
+"VARIANT_ALSO_NEGOTIATES"
+]
+},
+"view": {
+"$ref": "#/definitions/View"
+},
+"viewName": {
+"type": "string"
+}
+},
+"title": "ModelAndView"
+},
+"Order": {
+"type": "object",
+"required": [
+"amount",
+"currency"
+],
+"properties": {
+"amount": {
+"type": "number",
+"format": "float"
+},
+"currency": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"orderDate": {
+"type": "string",
+"format": "date-time"
+},
+"orderDetails": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderDetails"
+}
+},
+"shipping": {
+"$ref": "#/definitions/Shipping"
+},
+"status": {
+"$ref": "#/definitions/Status"
+},
+"taxFee": {
+"type": "number",
+"format": "float",
+"minimum": 0,
+"maximum": 1,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+},
+"transaction": {
+"$ref": "#/definitions/Transaction"
+},
+"user": {
+"$ref": "#/definitions/User"
+}
+},
+"title": "Order"
+},
+"OrderDetails": {
+"type": "object",
+"required": [
+"price",
+"productQuantity"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"order": {
+"$ref": "#/definitions/Order"
+},
+"price": {
+"type": "number",
+"format": "float"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"productQuantity": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "OrderDetails"
+},
+"OrderDetailsReq": {
+"type": "object",
+"required": [
+"price",
+"productQuantity"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"order": {
+"$ref": "#/definitions/OrderReq"
+},
+"price": {
+"type": "number",
+"format": "float"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"productQuantity": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "OrderDetailsReq"
+},
+"OrderDetailsRes": {
+"type": "object",
+"required": [
+"price",
+"productQuantity"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"order": {
+"$ref": "#/definitions/OrderRes"
+},
+"price": {
+"type": "number",
+"format": "float"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"productQuantity": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "OrderDetailsRes"
+},
+"OrderReq": {
+"type": "object",
+"required": [
+"amount",
+"currency"
+],
+"properties": {
+"amount": {
+"type": "number",
+"format": "float"
+},
+"currency": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"orderDate": {
+"type": "string",
+"format": "date-time"
+},
+"orderDetails": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderDetailsReq"
+}
+},
+"shipping": {
+"$ref": "#/definitions/ShippingReq"
+},
+"status": {
+"$ref": "#/definitions/StatusReq"
+},
+"taxFee": {
+"type": "number",
+"format": "float",
+"minimum": 0,
+"maximum": 1,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+},
+"transaction": {
+"$ref": "#/definitions/TransactionReq"
+},
+"user": {
+"$ref": "#/definitions/UserReq"
+}
+},
+"title": "OrderReq"
+},
+"OrderRes": {
+"type": "object",
+"required": [
+"amount",
+"currency"
+],
+"properties": {
+"amount": {
+"type": "number",
+"format": "float"
+},
+"currency": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"orderDate": {
+"type": "string",
+"format": "date-time"
+},
+"orderDetails": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderDetailsRes"
+}
+},
+"shipping": {
+"$ref": "#/definitions/ShippingRes"
+},
+"status": {
+"$ref": "#/definitions/StatusRes"
+},
+"subTotal": {
+"type": "number",
+"format": "float"
+},
+"taxFee": {
+"type": "number",
+"format": "float",
+"minimum": 0,
+"maximum": 1,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+},
+"totalPrice": {
+"type": "number",
+"format": "float"
+},
+"transaction": {
+"$ref": "#/definitions/TransactionRes"
+},
+"user": {
+"$ref": "#/definitions/UserRes"
+}
+},
+"title": "OrderRes"
+},
+"Pageable": {
+"type": "object",
+"properties": {
+"offset": {
+"type": "integer",
+"format": "int64"
+},
+"pageNumber": {
+"type": "integer",
+"format": "int32"
+},
+"pageSize": {
+"type": "integer",
+"format": "int32"
+},
+"paged": {
+"type": "boolean"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"unpaged": {
+"type": "boolean"
+}
+},
+"title": "Pageable"
+},
+"Page«Address»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/AddressRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Address»"
+},
+"Page«BaseOrderProjection»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/BaseOrderProjection"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«BaseOrderProjection»"
+},
+"Page«BaseProductProjection»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/BaseProductProjection"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«BaseProductProjection»"
+},
+"Page«Category»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Category"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Category»"
+},
+"Page«City»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/City"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«City»"
+},
+"Page«Country»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Country"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Country»"
+},
+"Page«CreditCardType»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/CreditCardType"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«CreditCardType»"
+},
+"Page«CreditCard»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/CreditCard"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«CreditCard»"
+},
+"Page«Invoice»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/InvoiceRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Invoice»"
+},
+"Page«OrderDetails»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderDetailsRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«OrderDetails»"
+},
+"Page«Order»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/OrderRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Order»"
+},
+"Page«Product»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Product"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Product»"
+},
+"Page«Rate»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/RateRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Rate»"
+},
+"Page«ReviewsUsersProjection»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ReviewsUsersProjection"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«ReviewsUsersProjection»"
+},
+"Page«Review»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ReviewRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Review»"
+},
+"Page«Shipping»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ShippingRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Shipping»"
+},
+"Page«Tag»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Tag"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Tag»"
+},
+"Page«Transaction»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/TransactionRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Transaction»"
+},
+"Page«Upload»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Upload"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Upload»"
+},
+"Page«User»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/UserRes"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«User»"
+},
+"Page«Website»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Website"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«Website»"
+},
+"Page«ZipCode»": {
+"type": "object",
+"properties": {
+"content": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ZipCode"
+}
+},
+"empty": {
+"type": "boolean"
+},
+"first": {
+"type": "boolean"
+},
+"last": {
+"type": "boolean"
+},
+"number": {
+"type": "integer",
+"format": "int32"
+},
+"numberOfElements": {
+"type": "integer",
+"format": "int32"
+},
+"pageable": {
+"$ref": "#/definitions/Pageable"
+},
+"size": {
+"type": "integer",
+"format": "int32"
+},
+"sort": {
+"$ref": "#/definitions/Sort"
+},
+"totalElements": {
+"type": "integer",
+"format": "int64"
+},
+"totalPages": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "Page«ZipCode»"
+},
+"Path": {
+"type": "object",
+"properties": {
+"absolute": {
+"type": "boolean"
+},
+"fileName": {
+"$ref": "#/definitions/Path"
+},
+"fileSystem": {
+"$ref": "#/definitions/FileSystem"
+},
+"nameCount": {
+"type": "integer",
+"format": "int32"
+},
+"parent": {
+"$ref": "#/definitions/Path"
+},
+"root": {
+"$ref": "#/definitions/Path"
+}
+},
+"title": "Path"
+},
+"PaymentMethod": {
+"type": "object",
+"properties": {
+"method": {
+"type": "string",
+"enum": [
+"BILL_PAYS",
+"CASH",
+"CHECKS",
+"CREDIT_CARD",
+"DEBIT",
+"LOCAL",
+"PREPAID_CARD"
+]
+}
+},
+"title": "PaymentMethod"
+},
+"Product": {
+"type": "object",
+"required": [
+"category",
+"description",
+"name",
+"price"
+],
+"properties": {
+"category": {
+"$ref": "#/definitions/Category"
+},
+"characteristics": {
+"type": "string"
+},
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"description": {
+"type": "string"
+},
+"details": {
+"type": "string"
+},
+"discount": {
+"type": "number",
+"format": "float",
+"minimum": 0,
+"maximum": 1,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"name": {
+"type": "string"
+},
+"overAllRate": {
+"type": "number",
+"format": "float"
+},
+"price": {
+"type": "number",
+"format": "float"
+},
+"sku": {
+"type": "string"
+},
+"stock": {
+"type": "integer",
+"format": "int32"
+},
+"tags": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Tag"
+}
+},
+"uploads": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Upload"
+}
+}
+},
+"title": "Product"
+},
+"ProductReviewsProjection": {
+"type": "object",
+"properties": {
+"reviews": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ReviewsUsersProjection"
+}
+}
+},
+"title": "ProductReviewsProjection"
+},
+"Rate": {
+"type": "object",
+"required": [
+"product",
+"user",
+"value"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"user": {
+"$ref": "#/definitions/UserRes"
+},
+"value": {
+"type": "integer",
+"format": "int32",
+"minimum": 0,
+"maximum": 5,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+}
+},
+"title": "Rate"
+},
+"RateReq": {
+"type": "object",
+"required": [
+"product",
+"user",
+"value"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"user": {
+"$ref": "#/definitions/UserReq"
+},
+"value": {
+"type": "integer",
+"format": "int32",
+"minimum": 0,
+"maximum": 5,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+}
+},
+"title": "RateReq"
+},
+"RateRes": {
+"type": "object",
+"required": [
+"product",
+"user",
+"value"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"user": {
+"$ref": "#/definitions/UserRes"
+},
+"value": {
+"type": "integer",
+"format": "int32",
+"minimum": 0,
+"maximum": 5,
+"exclusiveMinimum": false,
+"exclusiveMaximum": false
+}
+},
+"title": "RateRes"
+},
+"Resource": {
+"type": "object",
+"properties": {
+"description": {
+"type": "string"
+},
+"file": {
+"type": "file"
+},
+"filename": {
+"type": "string"
+},
+"inputStream": {
+"$ref": "#/definitions/InputStream"
+},
+"open": {
+"type": "boolean"
+},
+"readable": {
+"type": "boolean"
+},
+"uri": {
+"type": "string",
+"format": "uri"
+},
+"url": {
+"type": "string",
+"format": "url"
+}
+},
+"title": "Resource"
+},
+"ResponseEntity": {
+"type": "object",
+"properties": {
+"body": {
+"type": "object"
+},
+"statusCode": {
+"type": "string",
+"enum": [
+"ACCEPTED",
+"ALREADY_REPORTED",
+"BAD_GATEWAY",
+"BAD_REQUEST",
+"BANDWIDTH_LIMIT_EXCEEDED",
+"CHECKPOINT",
+"CONFLICT",
+"CONTINUE",
+"CREATED",
+"DESTINATION_LOCKED",
+"EXPECTATION_FAILED",
+"FAILED_DEPENDENCY",
+"FORBIDDEN",
+"FOUND",
+"GATEWAY_TIMEOUT",
+"GONE",
+"HTTP_VERSION_NOT_SUPPORTED",
+"IM_USED",
+"INSUFFICIENT_SPACE_ON_RESOURCE",
+"INSUFFICIENT_STORAGE",
+"INTERNAL_SERVER_ERROR",
+"I_AM_A_TEAPOT",
+"LENGTH_REQUIRED",
+"LOCKED",
+"LOOP_DETECTED",
+"METHOD_FAILURE",
+"METHOD_NOT_ALLOWED",
+"MOVED_PERMANENTLY",
+"MOVED_TEMPORARILY",
+"MULTIPLE_CHOICES",
+"MULTI_STATUS",
+"NETWORK_AUTHENTICATION_REQUIRED",
+"NON_AUTHORITATIVE_INFORMATION",
+"NOT_ACCEPTABLE",
+"NOT_EXTENDED",
+"NOT_FOUND",
+"NOT_IMPLEMENTED",
+"NOT_MODIFIED",
+"NO_CONTENT",
+"OK",
+"PARTIAL_CONTENT",
+"PAYLOAD_TOO_LARGE",
+"PAYMENT_REQUIRED",
+"PERMANENT_REDIRECT",
+"PRECONDITION_FAILED",
+"PRECONDITION_REQUIRED",
+"PROCESSING",
+"PROXY_AUTHENTICATION_REQUIRED",
+"REQUESTED_RANGE_NOT_SATISFIABLE",
+"REQUEST_ENTITY_TOO_LARGE",
+"REQUEST_HEADER_FIELDS_TOO_LARGE",
+"REQUEST_TIMEOUT",
+"REQUEST_URI_TOO_LONG",
+"RESET_CONTENT",
+"SEE_OTHER",
+"SERVICE_UNAVAILABLE",
+"SWITCHING_PROTOCOLS",
+"TEMPORARY_REDIRECT",
+"TOO_EARLY",
+"TOO_MANY_REQUESTS",
+"UNAUTHORIZED",
+"UNAVAILABLE_FOR_LEGAL_REASONS",
+"UNPROCESSABLE_ENTITY",
+"UNSUPPORTED_MEDIA_TYPE",
+"UPGRADE_REQUIRED",
+"URI_TOO_LONG",
+"USE_PROXY",
+"VARIANT_ALSO_NEGOTIATES"
+]
+},
+"statusCodeValue": {
+"type": "integer",
+"format": "int32"
+}
+},
+"title": "ResponseEntity"
+},
+"Review": {
+"type": "object",
+"required": [
+"createdAt",
+"description"
+],
+"properties": {
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"modified": {
+"type": "string",
+"format": "date-time"
+}
+},
+"title": "Review"
+},
+"ReviewReq": {
+"type": "object",
+"required": [
+"description",
+"product",
+"user"
+],
+"properties": {
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"product": {
+"$ref": "#/definitions/Product"
+},
+"user": {
+"$ref": "#/definitions/User"
+}
+},
+"title": "ReviewReq"
+},
+"ReviewRes": {
+"type": "object",
+"required": [
+"createdAt",
+"description"
+],
+"properties": {
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"modified": {
+"type": "string",
+"format": "date-time"
+}
+},
+"title": "ReviewRes"
+},
+"ReviewsUsersProjection": {
+"type": "object",
+"properties": {
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"user": {
+"$ref": "#/definitions/UserRequiredDataProjection"
+}
+},
+"title": "ReviewsUsersProjection"
+},
+"Role": {
+"type": "object",
+"properties": {
+"role": {
+"type": "string",
+"enum": [
+"ROLE_ADMIN",
+"ROLE_SUPERADMIN",
+"ROLE_USER"
+]
+}
+},
+"title": "Role"
+},
+"Shipping": {
+"type": "object",
+"required": [
+"address",
+"approximateDate",
+"order",
+"receiverAddress",
+"receiverCity",
+"receiverCountry",
+"receiverName",
+"receiverZipCode",
+"startDate",
+"status"
+],
+"properties": {
+"address": {
+"$ref": "#/definitions/Address"
+},
+"approximateDate": {
+"type": "string",
+"format": "date"
+},
+"fee": {
+"type": "number",
+"format": "float"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"order": {
+"$ref": "#/definitions/Order"
+},
+"receiverAddress": {
+"type": "string"
+},
+"receiverCity": {
+"type": "string"
+},
+"receiverCountry": {
+"type": "string"
+},
+"receiverName": {
+"type": "string"
+},
+"receiverZipCode": {
+"type": "integer",
+"format": "int64"
+},
+"startDate": {
+"type": "string",
+"format": "date-time"
+},
+"status": {
+"$ref": "#/definitions/Status"
+}
+},
+"title": "Shipping"
+},
+"ShippingReq": {
+"type": "object",
+"required": [
+"address",
+"approximateDate",
+"order",
+"receiverAddress",
+"receiverCity",
+"receiverCountry",
+"receiverName",
+"receiverZipCode",
+"startDate",
+"status"
+],
+"properties": {
+"address": {
+"$ref": "#/definitions/AddressReq"
+},
+"approximateDate": {
+"type": "string",
+"format": "date"
+},
+"fee": {
+"type": "number",
+"format": "float"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"order": {
+"$ref": "#/definitions/OrderReq"
+},
+"receiverAddress": {
+"type": "string"
+},
+"receiverCity": {
+"type": "string"
+},
+"receiverCountry": {
+"type": "string"
+},
+"receiverName": {
+"type": "string"
+},
+"receiverZipCode": {
+"type": "integer",
+"format": "int64"
+},
+"startDate": {
+"type": "string",
+"format": "date-time"
+},
+"status": {
+"$ref": "#/definitions/StatusReq"
+}
+},
+"title": "ShippingReq"
+},
+"ShippingRes": {
+"type": "object",
+"required": [
+"address",
+"approximateDate",
+"order",
+"receiverAddress",
+"receiverCity",
+"receiverCountry",
+"receiverName",
+"receiverZipCode",
+"startDate",
+"status"
+],
+"properties": {
+"address": {
+"$ref": "#/definitions/AddressRes"
+},
+"approximateDate": {
+"type": "string",
+"format": "date"
+},
+"fee": {
+"type": "number",
+"format": "float"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"order": {
+"$ref": "#/definitions/OrderRes"
+},
+"receiverAddress": {
+"type": "string"
+},
+"receiverCity": {
+"type": "string"
+},
+"receiverCountry": {
+"type": "string"
+},
+"receiverName": {
+"type": "string"
+},
+"receiverZipCode": {
+"type": "integer",
+"format": "int64"
+},
+"startDate": {
+"type": "string",
+"format": "date-time"
+},
+"status": {
+"$ref": "#/definitions/StatusRes"
+}
+},
+"title": "ShippingRes"
+},
+"SimpleUserProjection": {
+"type": "object",
+"properties": {
+"address": {
+"$ref": "#/definitions/AddressRes"
+},
+"birthDate": {
+"type": "string",
+"format": "date"
+},
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"email": {
+"type": "string"
+},
+"firstName": {
+"type": "string"
+},
+"id": {
+"type": "string"
+},
+"lastName": {
+"type": "string"
+},
+"phoneNumber": {
+"type": "string"
+},
+"roles": {
+"type": "string"
+}
+},
+"title": "SimpleUserProjection"
+},
+"Sort": {
+"type": "object",
+"properties": {
+"empty": {
+"type": "boolean"
+},
+"sorted": {
+"type": "boolean"
+},
+"unsorted": {
+"type": "boolean"
+}
+},
+"title": "Sort"
+},
+"Status": {
+"type": "object",
+"properties": {
+"shippings": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Shipping"
+}
+},
+"status": {
+"type": "string",
+"enum": [
+"ACTIVE",
+"CANCELED",
+"IN_PROGRESS",
+"IN_QUEUE",
+"PAUSED",
+"SUSPENDED"
+]
+}
+},
+"title": "Status"
+},
+"StatusReq": {
+"type": "object",
+"properties": {
+"shippings": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ShippingReq"
+}
+},
+"status": {
+"type": "string",
+"enum": [
+"ACTIVE",
+"CANCELED",
+"IN_PROGRESS",
+"IN_QUEUE",
+"PAUSED",
+"SUSPENDED"
+]
+}
+},
+"title": "StatusReq"
+},
+"StatusRes": {
+"type": "object",
+"properties": {
+"shippings": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/ShippingRes"
+}
+},
+"status": {
+"type": "string",
+"enum": [
+"ACTIVE",
+"CANCELED",
+"IN_PROGRESS",
+"IN_QUEUE",
+"PAUSED",
+"SUSPENDED"
+]
+}
+},
+"title": "StatusRes"
+},
+"Stream«Path»": {
+"type": "object",
+"properties": {
+"parallel": {
+"type": "boolean"
+}
+},
+"title": "Stream«Path»"
+},
+"Tag": {
+"type": "object",
+"required": [
+"tag"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"tag": {
+"type": "string"
+}
+},
+"title": "Tag"
+},
+"Transaction": {
+"type": "object",
+"required": [
+"complete",
+"date",
+"method",
+"order",
+"paid"
+],
+"properties": {
+"complete": {
+"type": "boolean"
+},
+"date": {
+"type": "string",
+"format": "date-time"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"method": {
+"$ref": "#/definitions/PaymentMethod"
+},
+"order": {
+"$ref": "#/definitions/Order"
+},
+"paid": {
+"type": "number",
+"format": "float"
+},
+"status": {
+"$ref": "#/definitions/Status"
+}
+},
+"title": "Transaction"
+},
+"TransactionReq": {
+"type": "object",
+"required": [
+"complete",
+"date",
+"method",
+"order",
+"paid"
+],
+"properties": {
+"complete": {
+"type": "boolean"
+},
+"date": {
+"type": "string",
+"format": "date-time"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"method": {
+"$ref": "#/definitions/PaymentMethod"
+},
+"order": {
+"$ref": "#/definitions/OrderReq"
+},
+"paid": {
+"type": "number",
+"format": "float"
+},
+"status": {
+"$ref": "#/definitions/StatusReq"
+}
+},
+"title": "TransactionReq"
+},
+"TransactionRes": {
+"type": "object",
+"required": [
+"complete",
+"date",
+"method",
+"order",
+"paid"
+],
+"properties": {
+"complete": {
+"type": "boolean"
+},
+"date": {
+"type": "string",
+"format": "date-time"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"method": {
+"$ref": "#/definitions/PaymentMethod"
+},
+"order": {
+"$ref": "#/definitions/OrderRes"
+},
+"paid": {
+"type": "number",
+"format": "float"
+},
+"status": {
+"$ref": "#/definitions/StatusRes"
+}
+},
+"title": "TransactionRes"
+},
+"Upload": {
+"type": "object",
+"required": [
+"contentType",
+"currentName",
+"originalName",
+"size",
+"type",
+"url"
+],
+"properties": {
+"contentType": {
+"type": "string"
+},
+"currentName": {
+"type": "string"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"local": {
+"type": "boolean"
+},
+"originalName": {
+"type": "string"
+},
+"size": {
+"type": "integer",
+"format": "int64"
+},
+"type": {
+"type": "string"
+},
+"url": {
+"type": "string"
+}
+},
+"title": "Upload"
+},
+"User": {
+"type": "object",
+"required": [
+"email",
+"firstName",
+"lastName"
+],
+"properties": {
+"address": {
+"$ref": "#/definitions/Address"
+},
+"birthDate": {
+"type": "string",
+"format": "date"
+},
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"email": {
+"type": "string"
+},
+"firstName": {
+"type": "string"
+},
+"gender": {
+"$ref": "#/definitions/Gender"
+},
+"id": {
+"type": "string"
+},
+"lastName": {
+"type": "string"
+},
+"phoneNumber": {
+"type": "string"
+},
+"roles": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Role"
+}
+},
+"status": {
+"$ref": "#/definitions/Status"
+}
+},
+"title": "User"
+},
+"UserPrincipalLookupService": {
+"type": "object",
+"title": "UserPrincipalLookupService"
+},
+"UserReq": {
+"type": "object",
+"required": [
+"email",
+"firstName",
+"lastName"
+],
+"properties": {
+"address": {
+"$ref": "#/definitions/AddressReq"
+},
+"birthDate": {
+"type": "string",
+"format": "date"
+},
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"email": {
+"type": "string"
+},
+"firstName": {
+"type": "string"
+},
+"gender": {
+"$ref": "#/definitions/GenderReq"
+},
+"id": {
+"type": "string"
+},
+"lastName": {
+"type": "string"
+},
+"phoneNumber": {
+"type": "string"
+},
+"roles": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Role"
+}
+},
+"status": {
+"$ref": "#/definitions/StatusReq"
+}
+},
+"title": "UserReq"
+},
+"UserRequiredDataProjection": {
+"type": "object",
+"properties": {
+"firstName": {
+"type": "string"
+},
+"id": {
+"type": "string"
+},
+"lastName": {
+"type": "string"
+}
+},
+"title": "UserRequiredDataProjection"
+},
+"UserRes": {
+"type": "object",
+"required": [
+"email",
+"firstName",
+"lastName"
+],
+"properties": {
+"address": {
+"$ref": "#/definitions/AddressRes"
+},
+"birthDate": {
+"type": "string",
+"format": "date"
+},
+"createdAt": {
+"type": "string",
+"format": "date-time"
+},
+"email": {
+"type": "string"
+},
+"firstName": {
+"type": "string"
+},
+"fullName": {
+"type": "string"
+},
+"gender": {
+"$ref": "#/definitions/GenderRes"
+},
+"id": {
+"type": "string"
+},
+"lastName": {
+"type": "string"
+},
+"phoneNumber": {
+"type": "string"
+},
+"roles": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Role"
+}
+},
+"status": {
+"$ref": "#/definitions/StatusRes"
+}
+},
+"title": "UserRes"
+},
+"View": {
+"type": "object",
+"properties": {
+"contentType": {
+"type": "string"
+}
+},
+"title": "View"
+},
+"Website": {
+"type": "object",
+"required": [
+"name",
+"slogan",
+"version"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"name": {
+"type": "string"
+},
+"slogan": {
+"type": "string"
+},
+"uploads": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/definitions/Upload"
+}
+},
+"version": {
+"type": "string"
+}
+},
+"title": "Website"
+},
+"ZipCode": {
+"type": "object",
+"required": [
+"code"
+],
+"properties": {
+"city": {
+"$ref": "#/definitions/City"
+},
+"code": {
+"type": "integer",
+"format": "int64"
+},
+"id": {
+"type": "integer",
+"format": "int64"
+}
+},
+"title": "ZipCode"
+}
+}
+}
